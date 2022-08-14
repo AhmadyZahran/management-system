@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+body {
+    background-color: gray;
+    height: 2000px;
+    position: relative;
+
+}
+
+header {
+    background-color: black;
+    color: rgb(25, 159, 67);
+    font-size: 20px;
+
+
+}
+
+.headernav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.a {
+    text-decoration: none;
+    color: gray;
+
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   text-align: center;
+   width: 100%;
+}
