@@ -1,9 +1,8 @@
-function Employee(employeeId, fullName, department, level, imageUrl) {
+function Employee(employeeId, fullName, department, level) {
     this.employeeId = employeeId
     this.fullName = fullName
     this.department = department
     this.level = level
-    this.imageUrl = imageUrl
     this.salary = () => {
         if (this.level.toLowerCase() === 'junior') {
             return Math.trunc(Math.random() * 500 + 500);
@@ -17,44 +16,72 @@ function Employee(employeeId, fullName, department, level, imageUrl) {
     }
 
 }
+const employees = [];
+const employeeOne = new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior');
+employees.push(employeeOne);
 
-const employeeOne = new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeOne);
-console.log(employeeOne.salary());
+const employeeTwo = new Employee(1001, 'Lana Ali', 'Finance', 'Senior');
+employees.push(employeeTwo)
 
+const employeeThree = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'Senior');
 
-const employeeTwo = new Employee(1001, 'Lana Ali', 'Finance', 'Senior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeTwo);
-console.log(employeeTwo.salary());
+employees.push(employeeThree)
 
+const employeeFour = new Employee(1003, 'Safi Walid', 'Administration', 'Mid-Senior');
 
-const employeeThree = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'Senior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeThree);
-console.log(employeeThree.salary());
+employees.push(employeeFour)
 
+const employeeFive = new Employee(1004, 'Omar Zaid', 'Development', 'Senior');
 
+employees.push(employeeFive)
 
-const employeeFour = new Employee(1003, 'Safi Walid', 'Administration', 'Mid-Senior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeFour);
-console.log(employeeFour.salary());
+const employeeSix = new Employee(1005, 'Rana Saleh', 'Development', 'junior');
 
+employees.push(employeeSix)
 
+const employeeSeven = new Employee(1006, 'Hadi Ahmad', 'Finance', 'Mid-senior');
 
-
-const employeeFive = new Employee(1004, 'Omar Zaid', 'Development', 'Senior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeFive);
-console.log(employeeFive.salary());
-
-
-
-const employeeSix = new Employee(1005, 'Rana Saleh', 'Development', 'junior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeSix);
-console.log(employeeSix.salary());
+employees.push(employeeSeven)
 
 
 
 
-const employeeSeven = new Employee(1006, 'Hadi Ahmad', 'Finance', 'Mid-senior', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUF7SE6CROioPfFm3jxwN5cPMxD_MobRdw&usqp=CAU');
-console.log(employeeSeven);
-console.log(employeeSeven.salary());
+
+// call the parent 
+let container = document.getElementById('container');
+//create child
+let tableOfEmployees = document.createElement('table');
+
+container.appendChild(tableOfEmployees);
+
+let row = document.createElement("tr")
+
+const data = ["employeeId", "fullName", "department", "level", "salary"];
+
+for (let i = 0; i < data.length; i++) {
+
+    let th = document.createElement("th")
+    row.appendChild(th)
+    th.innerText = data[i];
+
+}
+
+tableOfEmployees.appendChild(row)
+
+for (let i = 0; i < employees.length; i++) {
+    let row = document.createElement("tr");
+    for (info in employees[i]) {
+        console.log(info);
+        let td = document.createElement("td")
+        row.appendChild(td)
+        if (info === 'salary') {
+            td.innerText = employees[i].salary();
+        } else {
+            td.innerText = employees[i][info];
+        }
+    }
+    tableOfEmployees.appendChild(row);
+
+}
+
 
