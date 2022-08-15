@@ -7,7 +7,7 @@
 
 body {
     background-color: gray;
-    height: 2000px;
+    height: 500px;
     position: relative;
 
 }
@@ -35,9 +35,43 @@ header {
 }
 
 .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   text-align: center;
-   width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+table,
+tr,
+th,
+td {
+    border: 1px solid;
+    color: black;
+}
+
+table,
+tr {
+    border-collapse: collapse;
+}
+
+table {
+    margin: 10% auto;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(157, 152, 152);
+    border-color: black
+}
+
+td:hover {
+    background-color: lightsalmon;
+    color: black;
+    cursor: pointer;
 }
