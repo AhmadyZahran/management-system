@@ -1,6 +1,7 @@
 # management-system
 
 ## the repo contains:
+
 1. index.html
 
 2.accounting.html
@@ -13,4 +14,4 @@
 
 creating employee constructor and 7 employee object and printing them on console
 
-##complete the task upload the table
+##complete the task render the table
