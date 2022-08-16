@@ -1,5 +1,7 @@
 # management-system
 
+##task(1)
+
 ## the repo contains:
 
 1. index.html
@@ -13,5 +15,7 @@
 ## the task is about :
 
 creating employee constructor and 7 employee object and printing them on console
+
+##task(2)
 
 ##complete the task render the table
