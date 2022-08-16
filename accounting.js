@@ -1,8 +1,9 @@
-function Employee(employeeId, fullName, department, level) {
+function Employee(employeeId, fullName, department, level, imageUrl) {
     this.employeeId = employeeId
     this.fullName = fullName
     this.department = department
     this.level = level
+    this.imageUrl = imageUrl
     this.salary = () => {
         if (this.level.toLowerCase() === 'junior') {
             return Math.trunc(Math.random() * 500 + 500);
@@ -16,47 +17,17 @@ function Employee(employeeId, fullName, department, level) {
     }
 
 }
-const employees = [];
-const employeeOne = new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior');
-employees.push(employeeOne);
 
-const employeeTwo = new Employee(1001, 'Lana Ali', 'Finance', 'Senior');
-employees.push(employeeTwo)
-
-const employeeThree = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'Senior');
-
-employees.push(employeeThree)
-
-const employeeFour = new Employee(1003, 'Safi Walid', 'Administration', 'Mid-Senior');
-
-employees.push(employeeFour)
-
-const employeeFive = new Employee(1004, 'Omar Zaid', 'Development', 'Senior');
-
-employees.push(employeeFive)
-
-const employeeSix = new Employee(1005, 'Rana Saleh', 'Development', 'junior');
-
-employees.push(employeeSix)
-
-const employeeSeven = new Employee(1006, 'Hadi Ahmad', 'Finance', 'Mid-senior');
-
-employees.push(employeeSeven)
-
-
-
-
-
-// call the parent 
+// // call the parent 
 let container = document.getElementById('container');
 //create child
 let tableOfEmployees = document.createElement('table');
 
 container.appendChild(tableOfEmployees);
 
-let row = document.createElement("tr")
+let row = document.createElement("tr");
 
-const data = ["employeeId", "fullName", "department", "level", "salary"];
+const data = ["employeeId", "fullName", "department", "level", "imageUrl", "salary"];
 
 for (let i = 0; i < data.length; i++) {
 
@@ -66,22 +37,31 @@ for (let i = 0; i < data.length; i++) {
 
 }
 
-tableOfEmployees.appendChild(row)
+tableOfEmployees.appendChild(row);
 
-for (let i = 0; i < employees.length; i++) {
+
+let form = document.getElementById('myForm');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
     let row = document.createElement("tr");
-    for (info in employees[i]) {
-        console.log(info);
-        let td = document.createElement("td")
-        row.appendChild(td)
+    let employeeId = document.getElementById('employeeId').value;
+    let fullNAme = document.getElementById('fullName').value;
+    let department = document.getElementById('department').value;
+    let level = document.getElementById('LevelName').value;
+    let imageUrl = document.getElementById('imageUrl').value;
+
+    const employee = new Employee(employeeId, fullNAme, department, level, imageUrl);
+
+    for (info in employee) {
+        let td = document.createElement("td");
         if (info === 'salary') {
-            td.innerText = employees[i].salary();
+            td.innerHTML = employee.salary();
         } else {
-            td.innerText = employees[i][info];
+            td.innerHTML = employee[info];
         }
+        row.appendChild(td);
+
     }
     tableOfEmployees.appendChild(row);
-
-}
-
-
+})

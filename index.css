@@ -75,3 +75,27 @@ td:hover {
     color: black;
     cursor: pointer;
 }
+
+
+#myForm {
+
+    display: flex;
+
+    flex-direction: column;
+    width: 30%;
+    font-size: 17px;
+
+    margin: 20px auto;
+    padding: 5px;
+
+    border: 2px solid rgb(21, 21, 21);
+}
+
+#submit {
+    background-color: black;
+    color: gray;
+    border: 2px solid;
+    width: 30%;
+    margin: 0 auto;
+
+}
