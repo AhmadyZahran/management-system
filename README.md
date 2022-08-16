@@ -19,3 +19,7 @@ creating employee constructor and 7 employee object and printing them on console
 ##task(2)
 
 ##complete the task render the table
+
+##task(3)
+
+create form and fill the table
